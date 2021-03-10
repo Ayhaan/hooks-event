@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useState } from 'react';
+import PlusOne from './components/PlusOne';
+import InputChange from './components/InputChange';
+import InputCopy from './components/InputCopy';
+import InputClick from './components/InputClick';
+import ClickAlert from './components/ClickAlert'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    // state exercice 1
+    const [nbr, setNbr] = useState({
+        clicks: 0,
+    });
+
+    // state exercice 2
+    const [val, setVal] = useState({
+        text: 'Input Content',
+    });
+    
+    return (
+        <Fragment>
+            <PlusOne clicks={nbr.clicks} setNbr={setNbr} />
+
+            <InputChange text={val.text} setVal={setVal} />
+
+            <InputCopy />
+
+            <InputClick />
+
+            <ClickAlert />
+        </Fragment>
+    );
+};
 
 export default App;
